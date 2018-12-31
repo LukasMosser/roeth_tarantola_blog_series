@@ -9,7 +9,7 @@ using Pytorch distributions to create layered earth models.
 
 ## Planned Blog Posts
 
-- Part 1: Layered Earth Generative Modeling with Pytorch
+- Part 1: [Layered Earth Generative Modeling with Pytorch](https://github.com/LukasMosser/roeth_tarantola_blog_series/blob/master/Roeth%20and%20Tarantola%20Reloaded%20-%20Part%201-Data%20Generation.ipynb)
 - Part 2: Synthetic Waveforms using Devito
 - Part 3: Training Neural Networks to perform inversion using Pytorch
 - Part 4: Roeth, Tarantola and beyond...
