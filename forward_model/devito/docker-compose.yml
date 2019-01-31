@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  devito:
+
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+
+    environment:
+      DEVITO_ARCH: gcc
+      DEVITO_OPENMP: 0
+
+    volumes:
+      - ./devito:/app/devito
+      - ./tests:/app/tests
+      - ./examples:/app/examples
+      - ../../data:/app/data
+
+    ports:
+      - 8888:8888

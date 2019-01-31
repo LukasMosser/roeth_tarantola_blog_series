@@ -44,6 +44,8 @@ def plot_velocity_models(ax, models, colors=["blue", "black", "beige"], legend="
     upper = ax.plot(mean+dev, linestyle="--", color=colors[1])
     lower = ax.plot(mean-dev, linestyle="--", color=colors[1])
     sc2 = ax.fill_between(range(mean.shape[0]), mean-dev, mean+dev, alpha=alpha, color=colors[2])
+    for curve in models[:, :, 0].numpy():
+        ax.plot(range(len(curve)), curve, color=colors[0], alpha=0.01)
 
 def plot_losses(ax, losses):
     ax.plot(losses[:, 0], color="black", label="Train")
@@ -87,4 +89,4 @@ def plot_wiggle_traces(fig, xample, n_recorders):
         else:
             ax.axes.get_yaxis().set_visible(False)
             ax.set_frame_on(False)
-            ax.set_xlabel("Time[ms]")
+            ax.set_xlabel("Time [10 ms]", fontsize=20)
