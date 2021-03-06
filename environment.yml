@@ -1,0 +1,22 @@
+name: roeth_tarantola
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - pytest
+  - pytorch=1.7.1
+  - torchvision
+  - cudatoolkit=10.1
+  - numpy
+  - scipy
+  - tensorboard
+  - matplotlib
+  - nb_conda_kernels
+  - pip:
+    - tqdm
+    - notebook
+    - h5py
+    - scikit-learn
