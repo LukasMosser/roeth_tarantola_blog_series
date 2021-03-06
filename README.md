@@ -11,7 +11,7 @@ using Pytorch distributions to create layered earth models.
 
 - Part 1: [Layered Earth Generative Modeling with Pytorch](https://github.com/LukasMosser/roeth_tarantola_blog_series/blob/master/Roeth%20and%20Tarantola%20Reloaded%20-%20Part%201-Data%20Generation.ipynb)
 - Part 2: [Synthetic Waveform Modelling using Devito](https://github.com/LukasMosser/roeth_tarantola_blog_series/blob/master/Roeth%20and%20Tarantola%20Reloaded%20-%20Part%202-Seismic%20Forward%20Modeling.ipynb)
-- Part 3: [Training Neural Networks to perform inversion using Pytorch](https://github.com/LukasMosser/roeth_tarantola_blog_series/blob/master/Roeth%20and%20Tarantola%20Reloaded%20-%20Part%202-Seismic%20Forward%20Modeling.ipynb)
+- Part 3: [Training Neural Networks to perform inversion using Pytorch](https://github.com/LukasMosser/roeth_tarantola_blog_series/blob/master/Roeth%20and%20Tarantola%20-%20Part%203-Neural%20Networks%20for%20Seismic%20Inversion%20-%20SNIST%20Benchmark.ipynb)
 - Part 4: Roeth, Tarantola and beyond...
 
 Stay tuned!

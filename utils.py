@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import torch
+import random
 
 def transform(y, nz):
     model_true = torch.ones(nz, 1)    
@@ -11,8 +12,8 @@ def transform(y, nz):
 
 def plot_amplitudes_grid(amplitudes, nt, nrec):
     fig, axarr = plt.subplots(5, 5, figsize=(12, 12))
+    vmin, vmax = np.percentile(amplitudes, [1, 99])
     for ax, x in zip(axarr.flatten(), amplitudes.cpu().numpy()[::5]):   
-        vmin, vmax = np.percentile(x, [1, 99])
         ax.imshow(x.reshape(nt, nrec), aspect='auto', vmin=vmin, vmax=vmax)
         ax.get_xaxis().set_ticks([])
         ax.get_yaxis().set_ticks([])
@@ -23,7 +24,7 @@ def plot_velocity_profiles_grid(y, y_, nz):
     for ax, y, y_ in zip(axarr.flatten(), y.cpu().numpy()[::5], y_.cpu().numpy()[::5]):   
         ax.plot(transform(y, nz).numpy(), color="black")
         ax.plot(transform(y_, nz).numpy(), color="red")
-        ax.set_ylim(0.25, 1.0)
+        ax.set_ylim(0.0, 1.0)
         ax.get_xaxis().set_ticks([])
         ax.get_yaxis().set_ticks([])
     return axarr
@@ -32,7 +33,7 @@ def plot_velocity_profile_grid(y, nz):
     fig, axarr = plt.subplots(5, 5, figsize=(12, 12))
     for ax, y in zip(axarr.flatten(), y.cpu().numpy()):   
         ax.plot(transform(y, nz).numpy(), color="black")
-        ax.set_ylim(0.25, 1.1)
+        ax.set_ylim(0.0, 1.0)
         ax.get_xaxis().set_ticks([])
         ax.get_yaxis().set_ticks([])
     return axarr
@@ -90,3 +91,14 @@ def plot_wiggle_traces(fig, xample, n_recorders):
             ax.axes.get_yaxis().set_visible(False)
             ax.set_frame_on(False)
             ax.set_xlabel("Time [10 ms]", fontsize=20)
+
+def set_seed(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+
+    torch.backends.cudnn.benchmark = False  ##uses the inbuilt cudnn auto-tuner to find the fastest convolution algorithms. -
+    torch.backends.cudnn.enabled   = False
+
+    return True
